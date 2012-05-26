@@ -11,6 +11,8 @@ namespace sleep
 {
     public partial class Form1 : Form
     {
+        private int minutes;
+        private string mins;
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +25,14 @@ namespace sleep
 
         private void button1_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Process.Start("Shutdown", "-s -t "+this.mins);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+            this.minutes = Int32.Parse(textBox1.Text)*60;
+            this.mins = Convert.ToString(this.minutes);
 
         }
     }
